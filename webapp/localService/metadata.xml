@@ -1,0 +1,518 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<ns0:Schema xmlns:ns0="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="GWSAMPLE_BASIC" sap:schema-version="1" xml:lang="en">
+			<ns1:EntityType xmlns:ns1="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartner" sap:content-version="1">
+				<ns2:Key xmlns:ns2="http://schemas.microsoft.com/ado/2008/09/edm"><ns3:PropertyRef xmlns:ns3="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerID"/>
+				</ns2:Key><ns4:Property xmlns:ns4="http://schemas.microsoft.com/ado/2008/09/edm" Name="Address" Nullable="false" Type="GWSAMPLE_BASIC.CT_Address"/><ns5:Property xmlns:ns5="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="BusinessPartnerID" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:label="Business Partner ID" sap:updatable="false"/><ns6:Property xmlns:ns6="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="80" Name="CompanyName" Nullable="false" Type="Edm.String"
+					sap:label="Company"/><ns7:Property xmlns:ns7="http://schemas.microsoft.com/ado/2008/09/edm" Name="WebAddress" Type="Edm.String" sap:filterable="false"
+					sap:label="Web Address" sap:semantics="url" sap:sortable="false"/><ns8:Property xmlns:ns8="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="EmailAddress" Nullable="false"
+					Type="Edm.String" sap:label="E-Mail" sap:semantics="email"/><ns9:Property xmlns:ns9="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="PhoneNumber" Type="Edm.String"
+					sap:label="Phone No." sap:semantics="tel"/><ns10:Property xmlns:ns10="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="FaxNumber" Type="Edm.String"
+					sap:label="Fax Number"/><ns11:Property xmlns:ns11="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="LegalForm" Type="Edm.String"
+					sap:label="Legal Form"/><ns12:Property xmlns:ns12="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="5" Name="CurrencyCode" Nullable="false"
+					Type="Edm.String" sap:label="Currency Code" sap:semantics="currency-code"/><ns13:Property xmlns:ns13="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="BusinessPartnerRole" Nullable="false"
+					Type="Edm.String" sap:label="Bus. Part. Role"/><ns14:Property xmlns:ns14="http://schemas.microsoft.com/ado/2008/09/edm" Name="CreatedAt" Precision="7" Type="Edm.DateTime"
+					sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns15:Property xmlns:ns15="http://schemas.microsoft.com/ado/2008/09/edm" ConcurrencyMode="Fixed" Name="ChangedAt" Precision="7"
+					Type="Edm.DateTime" sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns16:NavigationProperty xmlns:ns16="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="FromRole_Assoc_BusinessPartner_SalesOrders"
+					Name="ToSalesOrders" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_SalesOrders" ToRole="ToRole_Assoc_BusinessPartner_SalesOrders"/><ns17:NavigationProperty xmlns:ns17="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="FromRole_Assoc_BusinessPartner_Contacts"
+					Name="ToContacts" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_Contacts" ToRole="ToRole_Assoc_BusinessPartner_Contacts"/><ns18:NavigationProperty xmlns:ns18="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="FromRole_Assoc_BusinessPartner_Products"
+					Name="ToProducts" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_Products" ToRole="ToRole_Assoc_BusinessPartner_Products"/>
+			</ns1:EntityType>
+			<ns19:EntityType xmlns:ns19="http://schemas.microsoft.com/ado/2008/09/edm" Name="Product" sap:content-version="1">
+				<ns20:Key xmlns:ns20="http://schemas.microsoft.com/ado/2008/09/edm"><ns21:PropertyRef xmlns:ns21="http://schemas.microsoft.com/ado/2008/09/edm" Name="ProductID"/>
+				</ns20:Key><ns22:Property xmlns:ns22="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="ProductID" Nullable="false" Type="Edm.String"
+					sap:label="Product ID" sap:updatable="false"/><ns23:Property xmlns:ns23="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="TypeCode" Nullable="false" Type="Edm.String"
+					sap:label="Type Code"/><ns24:Property xmlns:ns24="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="Category" Nullable="false" Type="Edm.String"
+					sap:label="Category"/><ns25:Property xmlns:ns25="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="Name" Nullable="false" Type="Edm.String"
+					sap:filterable="false" sap:label="Product Name" sap:sortable="false"/><ns26:Property xmlns:ns26="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="NameLanguage" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Language" sap:sortable="false" sap:updatable="false"/><ns27:Property xmlns:ns27="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="Description" Type="Edm.String"
+					sap:filterable="false" sap:label="Prod.Descrip." sap:sortable="false"/><ns28:Property xmlns:ns28="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="DescriptionLanguage" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Language" sap:sortable="false" sap:updatable="false"/><ns29:Property xmlns:ns29="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="SupplierID" Nullable="false" Type="Edm.String"
+					sap:label="Business Partner ID"/><ns30:Property xmlns:ns30="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="80" Name="SupplierName" Type="Edm.String"
+					sap:creatable="false" sap:label="Company" sap:updatable="false"/><ns31:Property xmlns:ns31="http://schemas.microsoft.com/ado/2008/09/edm" Name="TaxTarifCode" Nullable="false" Type="Edm.Byte"
+					sap:label="Tax Tariff Code"/><ns32:Property xmlns:ns32="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="MeasureUnit" Nullable="false" Type="Edm.String"
+					sap:label="Unit of Measure" sap:semantics="unit-of-measure"/><ns33:Property xmlns:ns33="http://schemas.microsoft.com/ado/2008/09/edm" Name="WeightMeasure" Precision="13" Scale="3" Type="Edm.Decimal"
+					sap:label="Weight" sap:unit="WeightUnit"/><ns34:Property xmlns:ns34="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="WeightUnit" Type="Edm.String"
+					sap:label="Unit of Measure" sap:semantics="unit-of-measure"/><ns35:Property xmlns:ns35="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="5" Name="CurrencyCode" Nullable="false"
+					Type="Edm.String" sap:label="Currency Code" sap:semantics="currency-code"/><ns36:Property xmlns:ns36="http://schemas.microsoft.com/ado/2008/09/edm" Name="Price" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:label="Price" sap:unit="CurrencyCode"/><ns37:Property xmlns:ns37="http://schemas.microsoft.com/ado/2008/09/edm" Name="Width" Precision="13" Scale="3" Type="Edm.Decimal"
+					sap:label="Dimensions" sap:unit="DimUnit"/><ns38:Property xmlns:ns38="http://schemas.microsoft.com/ado/2008/09/edm" Name="Depth" Precision="13" Scale="3" Type="Edm.Decimal"
+					sap:label="Dimensions" sap:unit="DimUnit"/><ns39:Property xmlns:ns39="http://schemas.microsoft.com/ado/2008/09/edm" Name="Height" Precision="13" Scale="3" Type="Edm.Decimal"
+					sap:label="Dimensions" sap:unit="DimUnit"/><ns40:Property xmlns:ns40="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="DimUnit" Type="Edm.String"
+					sap:label="Dimension Unit" sap:semantics="unit-of-measure"/><ns41:Property xmlns:ns41="http://schemas.microsoft.com/ado/2008/09/edm" Name="CreatedAt" Precision="7" Type="Edm.DateTime"
+					sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns42:Property xmlns:ns42="http://schemas.microsoft.com/ado/2008/09/edm" ConcurrencyMode="Fixed" Name="ChangedAt" Precision="7"
+					Type="Edm.DateTime" sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns43:NavigationProperty xmlns:ns43="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="FromRole_Assoc_Product_SalesOrderLineItems"
+					Name="ToSalesOrderLineItems" Relationship="GWSAMPLE_BASIC.Assoc_Product_SalesOrderLineItems"
+					ToRole="ToRole_Assoc_Product_SalesOrderLineItems"/><ns44:NavigationProperty xmlns:ns44="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="ToRole_Assoc_BusinessPartner_Products"
+					Name="ToSupplier" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_Products" ToRole="FromRole_Assoc_BusinessPartner_Products"/>
+			</ns19:EntityType>
+			<ns45:EntityType xmlns:ns45="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrder" sap:content-version="1">
+				<ns46:Key xmlns:ns46="http://schemas.microsoft.com/ado/2008/09/edm"><ns47:PropertyRef xmlns:ns47="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrderID"/>
+				</ns46:Key><ns48:Property xmlns:ns48="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="SalesOrderID" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:label="Sales Order ID" sap:updatable="false"/><ns49:Property xmlns:ns49="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="Note" Type="Edm.String"
+					sap:filterable="false" sap:label="Description" sap:sortable="false" sap:updatable="false"/><ns50:Property xmlns:ns50="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="NoteLanguage" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Language" sap:sortable="false" sap:updatable="false"/><ns51:Property xmlns:ns51="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="CustomerID" Nullable="false" Type="Edm.String"
+					sap:label="Business Partner ID" sap:updatable="false"/><ns52:Property xmlns:ns52="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="80" Name="CustomerName" Type="Edm.String"
+					sap:creatable="false" sap:label="Company" sap:updatable="false"/><ns53:Property xmlns:ns53="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="5" Name="CurrencyCode" Type="Edm.String"
+					sap:label="Currency Code" sap:semantics="currency-code" sap:updatable="false"/><ns54:Property xmlns:ns54="http://schemas.microsoft.com/ado/2008/09/edm" Name="GrossAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Gross Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns55:Property xmlns:ns55="http://schemas.microsoft.com/ado/2008/09/edm" Name="NetAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Net Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns56:Property xmlns:ns56="http://schemas.microsoft.com/ado/2008/09/edm" Name="TaxAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Tax Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns57:Property xmlns:ns57="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="1" Name="LifecycleStatus" Type="Edm.String"
+					sap:creatable="false" sap:label="Lifecycle Status" sap:updatable="false"/><ns58:Property xmlns:ns58="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="LifecycleStatusDescription" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Lifecycle Descript." sap:sortable="false" sap:updatable="false"/><ns59:Property xmlns:ns59="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="1" Name="BillingStatus" Type="Edm.String"
+					sap:creatable="false" sap:label="Confirmation Status" sap:updatable="false"/><ns60:Property xmlns:ns60="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="BillingStatusDescription" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Billing Description" sap:sortable="false" sap:updatable="false"/><ns61:Property xmlns:ns61="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="1" Name="DeliveryStatus" Type="Edm.String"
+					sap:creatable="false" sap:label="Ordering Status" sap:updatable="false"/><ns62:Property xmlns:ns62="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="DeliveryStatusDescription" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Delivery Description" sap:sortable="false" sap:updatable="false"/><ns63:Property xmlns:ns63="http://schemas.microsoft.com/ado/2008/09/edm" Name="CreatedAt" Precision="7" Type="Edm.DateTime"
+					sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns64:Property xmlns:ns64="http://schemas.microsoft.com/ado/2008/09/edm" Name="ChangedAt" Precision="7" Type="Edm.DateTime"
+					sap:creatable="false" sap:label="Time Stamp" sap:updatable="false"/><ns65:NavigationProperty xmlns:ns65="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="ToRole_Assoc_BusinessPartner_SalesOrders"
+					Name="ToBusinessPartner" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_SalesOrders" ToRole="FromRole_Assoc_BusinessPartner_SalesOrders"/><ns66:NavigationProperty xmlns:ns66="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="FromRole_Assoc_SalesOrder_SalesOrderLineItems"
+					Name="ToLineItems" Relationship="GWSAMPLE_BASIC.Assoc_SalesOrder_SalesOrderLineItems" ToRole="ToRole_Assoc_SalesOrder_SalesOrderLineItems"/>
+			</ns45:EntityType>
+			<ns67:EntityType xmlns:ns67="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrderLineItem" sap:content-version="1">
+				<ns68:Key xmlns:ns68="http://schemas.microsoft.com/ado/2008/09/edm"><ns69:PropertyRef xmlns:ns69="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrderID"/><ns70:PropertyRef xmlns:ns70="http://schemas.microsoft.com/ado/2008/09/edm" Name="ItemPosition"/>
+				</ns68:Key><ns71:Property xmlns:ns71="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="SalesOrderID" Nullable="false"
+					Type="Edm.String" sap:label="Sales Order ID" sap:updatable="false"/><ns72:Property xmlns:ns72="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="ItemPosition" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:label="Item Position" sap:updatable="false"/><ns73:Property xmlns:ns73="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="ProductID" Nullable="false" Type="Edm.String"
+					sap:label="Product ID"/><ns74:Property xmlns:ns74="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="Note" Type="Edm.String"
+					sap:filterable="false" sap:label="Description" sap:sortable="false"/><ns75:Property xmlns:ns75="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="NoteLanguage" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Language" sap:sortable="false" sap:updatable="false"/><ns76:Property xmlns:ns76="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="5" Name="CurrencyCode" Type="Edm.String"
+					sap:creatable="false" sap:label="Currency Code" sap:semantics="currency-code" sap:updatable="false"/><ns77:Property xmlns:ns77="http://schemas.microsoft.com/ado/2008/09/edm" Name="GrossAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Gross Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns78:Property xmlns:ns78="http://schemas.microsoft.com/ado/2008/09/edm" Name="NetAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Net Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns79:Property xmlns:ns79="http://schemas.microsoft.com/ado/2008/09/edm" Name="TaxAmount" Precision="16" Scale="3" Type="Edm.Decimal"
+					sap:creatable="false" sap:label="Tax Amount" sap:unit="CurrencyCode" sap:updatable="false"/><ns80:Property xmlns:ns80="http://schemas.microsoft.com/ado/2008/09/edm" Name="DeliveryDate" Nullable="false" Precision="7"
+					Type="Edm.DateTime" sap:filterable="false" sap:label="Time Stamp" sap:sortable="false"/><ns81:Property xmlns:ns81="http://schemas.microsoft.com/ado/2008/09/edm" Name="Quantity" Nullable="false" Precision="13" Scale="3"
+					Type="Edm.Decimal" sap:filterable="false" sap:label="Quantity" sap:sortable="false" sap:unit="QuantityUnit"/><ns82:Property xmlns:ns82="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="QuantityUnit" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Unit of Measure" sap:semantics="unit-of-measure" sap:sortable="false"
+					sap:updatable="false"/><ns83:NavigationProperty xmlns:ns83="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="ToRole_Assoc_SalesOrder_SalesOrderLineItems"
+					Name="ToHeader" Relationship="GWSAMPLE_BASIC.Assoc_SalesOrder_SalesOrderLineItems" ToRole="FromRole_Assoc_SalesOrder_SalesOrderLineItems"/><ns84:NavigationProperty xmlns:ns84="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="ToRole_Assoc_Product_SalesOrderLineItems"
+					Name="ToProduct" Relationship="GWSAMPLE_BASIC.Assoc_Product_SalesOrderLineItems" ToRole="FromRole_Assoc_Product_SalesOrderLineItems"/>
+			</ns67:EntityType>
+			<ns85:EntityType xmlns:ns85="http://schemas.microsoft.com/ado/2008/09/edm" Name="Contact" sap:content-version="1">
+				<ns86:Key xmlns:ns86="http://schemas.microsoft.com/ado/2008/09/edm"><ns87:PropertyRef xmlns:ns87="http://schemas.microsoft.com/ado/2008/09/edm" Name="ContactGuid"/>
+				</ns86:Key><ns88:Property xmlns:ns88="http://schemas.microsoft.com/ado/2008/09/edm" Name="Address" Nullable="false" Type="GWSAMPLE_BASIC.CT_Address"/><ns89:Property xmlns:ns89="http://schemas.microsoft.com/ado/2008/09/edm" Name="ContactGuid" Nullable="false" Type="Edm.Guid"
+					sap:creatable="false" sap:label="Contact GUID" sap:updatable="false"/><ns90:Property xmlns:ns90="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="BusinessPartnerID" Nullable="false"
+					Type="Edm.String" sap:label="Business Partner ID" sap:updatable="false"/><ns91:Property xmlns:ns91="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="Title" Type="Edm.String" sap:label="Title"/><ns92:Property xmlns:ns92="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="FirstName" Nullable="false" Type="Edm.String"
+					sap:label="First Name" sap:semantics="givenname"/><ns93:Property xmlns:ns93="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="MiddleName" Type="Edm.String"
+					sap:label="Middle Name" sap:semantics="middlename"/><ns94:Property xmlns:ns94="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="LastName" Type="Edm.String"
+					sap:label="Last Name" sap:semantics="familyname"/><ns95:Property xmlns:ns95="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="Nickname" Type="Edm.String"
+					sap:label="Nickname" sap:semantics="nickname"/><ns96:Property xmlns:ns96="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="Initials" Type="Edm.String"
+					sap:label="Initials"/><ns97:Property xmlns:ns97="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="1" Name="Sex" Nullable="false" Type="Edm.String"
+					sap:label="Gender"/><ns98:Property xmlns:ns98="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="PhoneNumber" Type="Edm.String"
+					sap:label="Phone No." sap:semantics="tel"/><ns99:Property xmlns:ns99="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="FaxNumber" Type="Edm.String"
+					sap:label="Fax Number"/><ns100:Property xmlns:ns100="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="255" Name="EmailAddress" Type="Edm.String"
+					sap:label="E-Mail" sap:semantics="email"/><ns101:Property xmlns:ns101="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="Language" Type="Edm.String"
+					sap:label="Language Key"/><ns102:Property xmlns:ns102="http://schemas.microsoft.com/ado/2008/09/edm" Name="DateOfBirth" Precision="7" Type="Edm.DateTime"
+					sap:label="Date of Birth" sap:semantics="bday"/><ns103:NavigationProperty xmlns:ns103="http://schemas.microsoft.com/ado/2008/09/edm" FromRole="ToRole_Assoc_BusinessPartner_Contacts"
+					Name="ToBusinessPartner" Relationship="GWSAMPLE_BASIC.Assoc_BusinessPartner_Contacts" ToRole="FromRole_Assoc_BusinessPartner_Contacts"/>
+			</ns85:EntityType>
+			<ns104:EntityType xmlns:ns104="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_Sex" sap:content-version="1">
+				<ns105:Key xmlns:ns105="http://schemas.microsoft.com/ado/2008/09/edm"><ns106:PropertyRef xmlns:ns106="http://schemas.microsoft.com/ado/2008/09/edm" Name="Sex"/>
+				</ns105:Key><ns107:Property xmlns:ns107="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="1" Name="Sex" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Sex" sap:sortable="false" sap:updatable="false"/><ns108:Property xmlns:ns108="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="Shorttext" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Short Descript." sap:sortable="false" sap:updatable="false"/>
+			</ns104:EntityType>
+			<ns109:EntityType xmlns:ns109="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_Country" sap:content-version="1">
+				<ns110:Key xmlns:ns110="http://schemas.microsoft.com/ado/2008/09/edm"><ns111:PropertyRef xmlns:ns111="http://schemas.microsoft.com/ado/2008/09/edm" Name="Land1"/>
+				</ns110:Key><ns112:Property xmlns:ns112="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="Land1" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Country" sap:sortable="false" sap:updatable="false"/><ns113:Property xmlns:ns113="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="15" Name="Landx" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Name" sap:sortable="false" sap:updatable="false"/><ns114:Property xmlns:ns114="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="15" Name="Natio" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Nationality" sap:sortable="false" sap:updatable="false"/>
+			</ns109:EntityType>
+			<ns115:EntityType xmlns:ns115="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_AddressType" sap:content-version="1">
+				<ns116:Key xmlns:ns116="http://schemas.microsoft.com/ado/2008/09/edm"><ns117:PropertyRef xmlns:ns117="http://schemas.microsoft.com/ado/2008/09/edm" Name="AddressType"/>
+				</ns116:Key><ns118:Property xmlns:ns118="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="AddressType" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Address Type" sap:sortable="false" sap:updatable="false"/><ns119:Property xmlns:ns119="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="Shorttext" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Short Descript." sap:sortable="false" sap:updatable="false"/>
+			</ns115:EntityType>
+			<ns120:EntityType xmlns:ns120="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_Category" sap:content-version="1">
+				<ns121:Key xmlns:ns121="http://schemas.microsoft.com/ado/2008/09/edm"><ns122:PropertyRef xmlns:ns122="http://schemas.microsoft.com/ado/2008/09/edm" Name="Category"/>
+				</ns121:Key><ns123:Property xmlns:ns123="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="Category" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Prod. Cat." sap:sortable="false" sap:updatable="false"/>
+			</ns120:EntityType>
+			<ns124:EntityType xmlns:ns124="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_Currency" sap:content-version="1">
+				<ns125:Key xmlns:ns125="http://schemas.microsoft.com/ado/2008/09/edm"><ns126:PropertyRef xmlns:ns126="http://schemas.microsoft.com/ado/2008/09/edm" Name="Waers"/>
+				</ns125:Key><ns127:Property xmlns:ns127="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="5" Name="Waers" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Currency" sap:semantics="currency-code" sap:sortable="false" sap:updatable="false"/><ns128:Property xmlns:ns128="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="Ltext" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Long Text" sap:sortable="false" sap:updatable="false"/>
+			</ns124:EntityType>
+			<ns129:EntityType xmlns:ns129="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_UnitQuantity" sap:content-version="1">
+				<ns130:Key xmlns:ns130="http://schemas.microsoft.com/ado/2008/09/edm"><ns131:PropertyRef xmlns:ns131="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+				</ns130:Key><ns132:Property xmlns:ns132="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="Msehi" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Int. meas. unit" sap:semantics="unit-of-measure" sap:sortable="false"
+					sap:updatable="false"/><ns133:Property xmlns:ns133="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="Msehl" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Unit text" sap:sortable="false" sap:updatable="false"/>
+			</ns129:EntityType>
+			<ns134:EntityType xmlns:ns134="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_UnitWeight" sap:content-version="1">
+				<ns135:Key xmlns:ns135="http://schemas.microsoft.com/ado/2008/09/edm"><ns136:PropertyRef xmlns:ns136="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+				</ns135:Key><ns137:Property xmlns:ns137="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="Msehi" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Int. meas. unit" sap:semantics="unit-of-measure" sap:sortable="false"
+					sap:updatable="false"/><ns138:Property xmlns:ns138="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="Msehl" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Unit text" sap:sortable="false" sap:updatable="false"/>
+			</ns134:EntityType>
+			<ns139:EntityType xmlns:ns139="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_UnitLength" sap:content-version="1">
+				<ns140:Key xmlns:ns140="http://schemas.microsoft.com/ado/2008/09/edm"><ns141:PropertyRef xmlns:ns141="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+				</ns140:Key><ns142:Property xmlns:ns142="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="Msehi" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Int. meas. unit" sap:semantics="unit-of-measure" sap:sortable="false"
+					sap:updatable="false"/><ns143:Property xmlns:ns143="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="30" Name="Msehl" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Unit text" sap:sortable="false" sap:updatable="false"/>
+			</ns139:EntityType>
+			<ns144:EntityType xmlns:ns144="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_ProductTypeCode" sap:content-version="1">
+				<ns145:Key xmlns:ns145="http://schemas.microsoft.com/ado/2008/09/edm"><ns146:PropertyRef xmlns:ns146="http://schemas.microsoft.com/ado/2008/09/edm" Name="TypeCode"/>
+				</ns145:Key><ns147:Property xmlns:ns147="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="TypeCode" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Prod. Type Code" sap:sortable="false" sap:updatable="false"/><ns148:Property xmlns:ns148="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="Shorttext" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Short Descript." sap:sortable="false" sap:updatable="false"/>
+			</ns144:EntityType>
+			<ns149:EntityType xmlns:ns149="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_BPRole" sap:content-version="1">
+				<ns150:Key xmlns:ns150="http://schemas.microsoft.com/ado/2008/09/edm"><ns151:PropertyRef xmlns:ns151="http://schemas.microsoft.com/ado/2008/09/edm" Name="BpRole"/>
+				</ns150:Key><ns152:Property xmlns:ns152="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="BpRole" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Bus. Part. Role" sap:sortable="false" sap:updatable="false"/><ns153:Property xmlns:ns153="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="Shorttext" Nullable="false"
+					Type="Edm.String" sap:creatable="false" sap:filterable="false" sap:label="Short Descript." sap:sortable="false" sap:updatable="false"/>
+			</ns149:EntityType>
+			<ns154:EntityType xmlns:ns154="http://schemas.microsoft.com/ado/2008/09/edm" Name="VH_Language" sap:content-version="1">
+				<ns155:Key xmlns:ns155="http://schemas.microsoft.com/ado/2008/09/edm"><ns156:PropertyRef xmlns:ns156="http://schemas.microsoft.com/ado/2008/09/edm" Name="Spras"/>
+				</ns155:Key><ns157:Property xmlns:ns157="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="Spras" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Language" sap:sortable="false" sap:updatable="false"/><ns158:Property xmlns:ns158="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="16" Name="Sptxt" Nullable="false" Type="Edm.String"
+					sap:creatable="false" sap:filterable="false" sap:label="Name" sap:sortable="false" sap:updatable="false"/>
+			</ns154:EntityType>
+			<ns159:ComplexType xmlns:ns159="http://schemas.microsoft.com/ado/2008/09/edm" Name="CT_Address"><ns160:Property xmlns:ns160="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="40" Name="City" Type="Edm.String" sap:label="City"
+				sap:semantics="city"/><ns161:Property xmlns:ns161="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="PostalCode" Type="Edm.String"
+				sap:label="Postal Code" sap:semantics="zip"/><ns162:Property xmlns:ns162="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="60" Name="Street" Type="Edm.String" sap:label="Street"
+				sap:semantics="street"/><ns163:Property xmlns:ns163="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Name="Building" Type="Edm.String"
+				sap:label="Building"/><ns164:Property xmlns:ns164="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="3" Name="Country" Type="Edm.String"
+				sap:label="Country" sap:semantics="country"/><ns165:Property xmlns:ns165="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="2" Name="AddressType" Type="Edm.String"
+				sap:label="Address Type"/><ns166:Property xmlns:ns166="http://schemas.microsoft.com/ado/2008/09/edm" Name="Latitude" Type="Edm.String" sap:label="Latitude"/><ns167:Property xmlns:ns167="http://schemas.microsoft.com/ado/2008/09/edm" Name="Longitude" Type="Edm.String" sap:label="Longitude"/>
+			</ns159:ComplexType>
+			<ns168:ComplexType xmlns:ns168="http://schemas.microsoft.com/ado/2008/09/edm" Name="CT_String"><ns169:Property xmlns:ns169="http://schemas.microsoft.com/ado/2008/09/edm" Name="String" Nullable="false" Type="Edm.String"
+				sap:creatable="false" sap:filterable="false" sap:sortable="false" sap:updatable="false"/>
+			</ns168:ComplexType>
+			<ns170:Association xmlns:ns170="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Country_Contacts" sap:content-version="1"><ns171:End xmlns:ns171="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Country_Contacts"
+				Type="GWSAMPLE_BASIC.VH_Country"/><ns172:End xmlns:ns172="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Country_Contacts"
+				Type="GWSAMPLE_BASIC.Contact"/>
+			</ns170:Association>
+			<ns173:Association xmlns:ns173="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Country_BusinessPartners"
+				sap:content-version="1"><ns174:End xmlns:ns174="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Country_BusinessPartners"
+				Type="GWSAMPLE_BASIC.VH_Country"/><ns175:End xmlns:ns175="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Country_BusinessPartners"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/>
+			</ns173:Association>
+			<ns176:Association xmlns:ns176="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_UnitQuantity_Products" sap:content-version="1"><ns177:End xmlns:ns177="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_UnitQuantity_Products"
+				Type="GWSAMPLE_BASIC.VH_UnitQuantity"/><ns178:End xmlns:ns178="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_UnitQuantity_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns179:ReferentialConstraint xmlns:ns179="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns180:Principal xmlns:ns180="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_UnitQuantity_Products"><ns181:PropertyRef xmlns:ns181="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+					</ns180:Principal>
+					<ns182:Dependent xmlns:ns182="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_UnitQuantity_Products"><ns183:PropertyRef xmlns:ns183="http://schemas.microsoft.com/ado/2008/09/edm" Name="MeasureUnit"/>
+					</ns182:Dependent>
+				</ns179:ReferentialConstraint>
+			</ns176:Association>
+			<ns184:Association xmlns:ns184="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_UnitQuantity_SalesOrderLineItem"
+				sap:content-version="1"><ns185:End xmlns:ns185="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1"
+				Role="FromRole_Assoc_VH_UnitQuantity_SalesOrderLineItem" Type="GWSAMPLE_BASIC.VH_UnitQuantity"/><ns186:End xmlns:ns186="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*"
+				Role="ToRole_Assoc_VH_UnitQuantity_SalesOrderLineItem" Type="GWSAMPLE_BASIC.SalesOrderLineItem"/>
+				<ns187:ReferentialConstraint xmlns:ns187="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns188:Principal xmlns:ns188="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_UnitQuantity_SalesOrderLineItem"><ns189:PropertyRef xmlns:ns189="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+					</ns188:Principal>
+					<ns190:Dependent xmlns:ns190="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_UnitQuantity_SalesOrderLineItem"><ns191:PropertyRef xmlns:ns191="http://schemas.microsoft.com/ado/2008/09/edm" Name="QuantityUnit"/>
+					</ns190:Dependent>
+				</ns187:ReferentialConstraint>
+			</ns184:Association>
+			<ns192:Association xmlns:ns192="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_BusinessPartner_Contacts" sap:content-version="1"><ns193:End xmlns:ns193="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_BusinessPartner_Contacts"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/><ns194:End xmlns:ns194="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_BusinessPartner_Contacts"
+				Type="GWSAMPLE_BASIC.Contact"/>
+				<ns195:ReferentialConstraint xmlns:ns195="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns196:Principal xmlns:ns196="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_BusinessPartner_Contacts"><ns197:PropertyRef xmlns:ns197="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerID"/>
+					</ns196:Principal>
+					<ns198:Dependent xmlns:ns198="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_BusinessPartner_Contacts"><ns199:PropertyRef xmlns:ns199="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerID"/>
+					</ns198:Dependent>
+				</ns195:ReferentialConstraint>
+			</ns192:Association>
+			<ns200:Association xmlns:ns200="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_BusinessPartner_Products" sap:content-version="1"><ns201:End xmlns:ns201="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_BusinessPartner_Products"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/><ns202:End xmlns:ns202="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_BusinessPartner_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns203:ReferentialConstraint xmlns:ns203="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns204:Principal xmlns:ns204="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_BusinessPartner_Products"><ns205:PropertyRef xmlns:ns205="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerID"/>
+					</ns204:Principal>
+					<ns206:Dependent xmlns:ns206="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_BusinessPartner_Products"><ns207:PropertyRef xmlns:ns207="http://schemas.microsoft.com/ado/2008/09/edm" Name="SupplierID"/>
+					</ns206:Dependent>
+				</ns203:ReferentialConstraint>
+			</ns200:Association>
+			<ns208:Association xmlns:ns208="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_BusinessPartner_SalesOrders"
+				sap:content-version="1"><ns209:End xmlns:ns209="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_BusinessPartner_SalesOrders"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/><ns210:End xmlns:ns210="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_BusinessPartner_SalesOrders"
+				Type="GWSAMPLE_BASIC.SalesOrder"/>
+				<ns211:ReferentialConstraint xmlns:ns211="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns212:Principal xmlns:ns212="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_BusinessPartner_SalesOrders"><ns213:PropertyRef xmlns:ns213="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerID"/>
+					</ns212:Principal>
+					<ns214:Dependent xmlns:ns214="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_BusinessPartner_SalesOrders"><ns215:PropertyRef xmlns:ns215="http://schemas.microsoft.com/ado/2008/09/edm" Name="CustomerID"/>
+					</ns214:Dependent>
+				</ns211:ReferentialConstraint>
+			</ns208:Association>
+			<ns216:Association xmlns:ns216="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_UnitWeight_Products" sap:content-version="1"><ns217:End xmlns:ns217="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_UnitWeight_Products"
+				Type="GWSAMPLE_BASIC.VH_UnitWeight"/><ns218:End xmlns:ns218="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_UnitWeight_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns219:ReferentialConstraint xmlns:ns219="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns220:Principal xmlns:ns220="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_UnitWeight_Products"><ns221:PropertyRef xmlns:ns221="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+					</ns220:Principal>
+					<ns222:Dependent xmlns:ns222="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_UnitWeight_Products"><ns223:PropertyRef xmlns:ns223="http://schemas.microsoft.com/ado/2008/09/edm" Name="WeightUnit"/>
+					</ns222:Dependent>
+				</ns219:ReferentialConstraint>
+			</ns216:Association>
+			<ns224:Association xmlns:ns224="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_SalesOrder_SalesOrderLineItems"
+				sap:content-version="1"><ns225:End xmlns:ns225="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_SalesOrder_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.SalesOrder"/><ns226:End xmlns:ns226="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_SalesOrder_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.SalesOrderLineItem"/>
+				<ns227:ReferentialConstraint xmlns:ns227="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns228:Principal xmlns:ns228="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_SalesOrder_SalesOrderLineItems"><ns229:PropertyRef xmlns:ns229="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrderID"/>
+					</ns228:Principal>
+					<ns230:Dependent xmlns:ns230="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_SalesOrder_SalesOrderLineItems"><ns231:PropertyRef xmlns:ns231="http://schemas.microsoft.com/ado/2008/09/edm" Name="SalesOrderID"/>
+					</ns230:Dependent>
+				</ns227:ReferentialConstraint>
+			</ns224:Association>
+			<ns232:Association xmlns:ns232="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Currency_BusinessPartners"
+				sap:content-version="1"><ns233:End xmlns:ns233="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Currency_BusinessPartners"
+				Type="GWSAMPLE_BASIC.VH_Currency"/><ns234:End xmlns:ns234="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Currency_BusinessPartners"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/>
+				<ns235:ReferentialConstraint xmlns:ns235="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns236:Principal xmlns:ns236="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Currency_BusinessPartners"><ns237:PropertyRef xmlns:ns237="http://schemas.microsoft.com/ado/2008/09/edm" Name="Waers"/>
+					</ns236:Principal>
+					<ns238:Dependent xmlns:ns238="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Currency_BusinessPartners"><ns239:PropertyRef xmlns:ns239="http://schemas.microsoft.com/ado/2008/09/edm" Name="CurrencyCode"/>
+					</ns238:Dependent>
+				</ns235:ReferentialConstraint>
+			</ns232:Association>
+			<ns240:Association xmlns:ns240="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Currency_Products" sap:content-version="1"><ns241:End xmlns:ns241="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Currency_Products"
+				Type="GWSAMPLE_BASIC.VH_Currency"/><ns242:End xmlns:ns242="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Currency_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns243:ReferentialConstraint xmlns:ns243="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns244:Principal xmlns:ns244="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Currency_Products"><ns245:PropertyRef xmlns:ns245="http://schemas.microsoft.com/ado/2008/09/edm" Name="Waers"/>
+					</ns244:Principal>
+					<ns246:Dependent xmlns:ns246="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Currency_Products"><ns247:PropertyRef xmlns:ns247="http://schemas.microsoft.com/ado/2008/09/edm" Name="CurrencyCode"/>
+					</ns246:Dependent>
+				</ns243:ReferentialConstraint>
+			</ns240:Association>
+			<ns248:Association xmlns:ns248="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Currency_SalesOrders" sap:content-version="1"><ns249:End xmlns:ns249="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Currency_SalesOrders"
+				Type="GWSAMPLE_BASIC.VH_Currency"/><ns250:End xmlns:ns250="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Currency_SalesOrders"
+				Type="GWSAMPLE_BASIC.SalesOrder"/>
+				<ns251:ReferentialConstraint xmlns:ns251="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns252:Principal xmlns:ns252="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Currency_SalesOrders"><ns253:PropertyRef xmlns:ns253="http://schemas.microsoft.com/ado/2008/09/edm" Name="Waers"/>
+					</ns252:Principal>
+					<ns254:Dependent xmlns:ns254="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Currency_SalesOrders"><ns255:PropertyRef xmlns:ns255="http://schemas.microsoft.com/ado/2008/09/edm" Name="CurrencyCode"/>
+					</ns254:Dependent>
+				</ns251:ReferentialConstraint>
+			</ns248:Association>
+			<ns256:Association xmlns:ns256="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Currency_SalesOrderLineItems"
+				sap:content-version="1"><ns257:End xmlns:ns257="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Currency_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.VH_Currency"/><ns258:End xmlns:ns258="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Currency_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.SalesOrderLineItem"/>
+				<ns259:ReferentialConstraint xmlns:ns259="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns260:Principal xmlns:ns260="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Currency_SalesOrderLineItems"><ns261:PropertyRef xmlns:ns261="http://schemas.microsoft.com/ado/2008/09/edm" Name="Waers"/>
+					</ns260:Principal>
+					<ns262:Dependent xmlns:ns262="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Currency_SalesOrderLineItems"><ns263:PropertyRef xmlns:ns263="http://schemas.microsoft.com/ado/2008/09/edm" Name="CurrencyCode"/>
+					</ns262:Dependent>
+				</ns259:ReferentialConstraint>
+			</ns256:Association>
+			<ns264:Association xmlns:ns264="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_Product_SalesOrderLineItems"
+				sap:content-version="1"><ns265:End xmlns:ns265="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_Product_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.Product"/><ns266:End xmlns:ns266="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_Product_SalesOrderLineItems"
+				Type="GWSAMPLE_BASIC.SalesOrderLineItem"/>
+				<ns267:ReferentialConstraint xmlns:ns267="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns268:Principal xmlns:ns268="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_Product_SalesOrderLineItems"><ns269:PropertyRef xmlns:ns269="http://schemas.microsoft.com/ado/2008/09/edm" Name="ProductID"/>
+					</ns268:Principal>
+					<ns270:Dependent xmlns:ns270="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_Product_SalesOrderLineItems"><ns271:PropertyRef xmlns:ns271="http://schemas.microsoft.com/ado/2008/09/edm" Name="ProductID"/>
+					</ns270:Dependent>
+				</ns267:ReferentialConstraint>
+			</ns264:Association>
+			<ns272:Association xmlns:ns272="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Language_Contacts" sap:content-version="1"><ns273:End xmlns:ns273="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Language_Contacts"
+				Type="GWSAMPLE_BASIC.VH_Language"/><ns274:End xmlns:ns274="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Language_Contacts"
+				Type="GWSAMPLE_BASIC.Contact"/>
+				<ns275:ReferentialConstraint xmlns:ns275="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns276:Principal xmlns:ns276="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Language_Contacts"><ns277:PropertyRef xmlns:ns277="http://schemas.microsoft.com/ado/2008/09/edm" Name="Spras"/>
+					</ns276:Principal>
+					<ns278:Dependent xmlns:ns278="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Language_Contacts"><ns279:PropertyRef xmlns:ns279="http://schemas.microsoft.com/ado/2008/09/edm" Name="Language"/>
+					</ns278:Dependent>
+				</ns275:ReferentialConstraint>
+			</ns272:Association>
+			<ns280:Association xmlns:ns280="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Category_Products" sap:content-version="1"><ns281:End xmlns:ns281="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Category_Products"
+				Type="GWSAMPLE_BASIC.VH_Category"/><ns282:End xmlns:ns282="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Category_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns283:ReferentialConstraint xmlns:ns283="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns284:Principal xmlns:ns284="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Category_Products"><ns285:PropertyRef xmlns:ns285="http://schemas.microsoft.com/ado/2008/09/edm" Name="Category"/>
+					</ns284:Principal>
+					<ns286:Dependent xmlns:ns286="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Category_Products"><ns287:PropertyRef xmlns:ns287="http://schemas.microsoft.com/ado/2008/09/edm" Name="Category"/>
+					</ns286:Dependent>
+				</ns283:ReferentialConstraint>
+			</ns280:Association>
+			<ns288:Association xmlns:ns288="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_Sex_Contacts" sap:content-version="1"><ns289:End xmlns:ns289="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_Sex_Contacts"
+				Type="GWSAMPLE_BASIC.VH_Sex"/><ns290:End xmlns:ns290="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_Sex_Contacts"
+				Type="GWSAMPLE_BASIC.Contact"/>
+				<ns291:ReferentialConstraint xmlns:ns291="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns292:Principal xmlns:ns292="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_Sex_Contacts"><ns293:PropertyRef xmlns:ns293="http://schemas.microsoft.com/ado/2008/09/edm" Name="Sex"/>
+					</ns292:Principal>
+					<ns294:Dependent xmlns:ns294="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_Sex_Contacts"><ns295:PropertyRef xmlns:ns295="http://schemas.microsoft.com/ado/2008/09/edm" Name="Sex"/>
+					</ns294:Dependent>
+				</ns291:ReferentialConstraint>
+			</ns288:Association>
+			<ns296:Association xmlns:ns296="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_ProductTypeCode_Products"
+				sap:content-version="1"><ns297:End xmlns:ns297="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_ProductTypeCode_Products"
+				Type="GWSAMPLE_BASIC.VH_ProductTypeCode"/><ns298:End xmlns:ns298="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_ProductTypeCode_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns299:ReferentialConstraint xmlns:ns299="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns300:Principal xmlns:ns300="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_ProductTypeCode_Products"><ns301:PropertyRef xmlns:ns301="http://schemas.microsoft.com/ado/2008/09/edm" Name="TypeCode"/>
+					</ns300:Principal>
+					<ns302:Dependent xmlns:ns302="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_ProductTypeCode_Products"><ns303:PropertyRef xmlns:ns303="http://schemas.microsoft.com/ado/2008/09/edm" Name="TypeCode"/>
+					</ns302:Dependent>
+				</ns299:ReferentialConstraint>
+			</ns296:Association>
+			<ns304:Association xmlns:ns304="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_BPRole_BusinessPartners"
+				sap:content-version="1"><ns305:End xmlns:ns305="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_BPRole_BusinessPartners"
+				Type="GWSAMPLE_BASIC.VH_BPRole"/><ns306:End xmlns:ns306="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_BPRole_BusinessPartners"
+				Type="GWSAMPLE_BASIC.BusinessPartner"/>
+				<ns307:ReferentialConstraint xmlns:ns307="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns308:Principal xmlns:ns308="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_BPRole_BusinessPartners"><ns309:PropertyRef xmlns:ns309="http://schemas.microsoft.com/ado/2008/09/edm" Name="BpRole"/>
+					</ns308:Principal>
+					<ns310:Dependent xmlns:ns310="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_BPRole_BusinessPartners"><ns311:PropertyRef xmlns:ns311="http://schemas.microsoft.com/ado/2008/09/edm" Name="BusinessPartnerRole"/>
+					</ns310:Dependent>
+				</ns307:ReferentialConstraint>
+			</ns304:Association>
+			<ns312:Association xmlns:ns312="http://schemas.microsoft.com/ado/2008/09/edm" Name="Assoc_VH_UnitLength_Products" sap:content-version="1"><ns313:End xmlns:ns313="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="1" Role="FromRole_Assoc_VH_UnitLength_Products"
+				Type="GWSAMPLE_BASIC.VH_UnitLength"/><ns314:End xmlns:ns314="http://schemas.microsoft.com/ado/2008/09/edm" Multiplicity="*" Role="ToRole_Assoc_VH_UnitLength_Products"
+				Type="GWSAMPLE_BASIC.Product"/>
+				<ns315:ReferentialConstraint xmlns:ns315="http://schemas.microsoft.com/ado/2008/09/edm">
+					<ns316:Principal xmlns:ns316="http://schemas.microsoft.com/ado/2008/09/edm" Role="FromRole_Assoc_VH_UnitLength_Products"><ns317:PropertyRef xmlns:ns317="http://schemas.microsoft.com/ado/2008/09/edm" Name="Msehi"/>
+					</ns316:Principal>
+					<ns318:Dependent xmlns:ns318="http://schemas.microsoft.com/ado/2008/09/edm" Role="ToRole_Assoc_VH_UnitLength_Products"><ns319:PropertyRef xmlns:ns319="http://schemas.microsoft.com/ado/2008/09/edm" Name="DimUnit"/>
+					</ns318:Dependent>
+				</ns315:ReferentialConstraint>
+			</ns312:Association>
+			<ns320:EntityContainer xmlns:ns320="http://schemas.microsoft.com/ado/2008/09/edm" Name="GWSAMPLE_BASIC_Entities"
+				m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><ns321:EntitySet xmlns:ns321="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.BusinessPartner"
+				Name="BusinessPartnerSet" sap:content-version="1"/><ns322:EntitySet xmlns:ns322="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.Product" Name="ProductSet"
+				sap:content-version="1"/><ns323:EntitySet xmlns:ns323="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.SalesOrder" Name="SalesOrderSet"
+				sap:content-version="1" sap:updatable="false"/><ns324:EntitySet xmlns:ns324="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.SalesOrderLineItem"
+				Name="SalesOrderLineItemSet" sap:content-version="1"/><ns325:EntitySet xmlns:ns325="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.Contact" Name="ContactSet"
+				sap:content-version="1"/><ns326:EntitySet xmlns:ns326="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_Sex" Name="VH_SexSet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns327:EntitySet xmlns:ns327="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_Country" Name="VH_CountrySet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns328:EntitySet xmlns:ns328="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_AddressType"
+				Name="VH_AddressTypeSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns329:EntitySet xmlns:ns329="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_Category" Name="VH_CategorySet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns330:EntitySet xmlns:ns330="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_Currency" Name="VH_CurrencySet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns331:EntitySet xmlns:ns331="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_UnitQuantity"
+				Name="VH_UnitQuantitySet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns332:EntitySet xmlns:ns332="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_UnitWeight"
+				Name="VH_UnitWeightSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns333:EntitySet xmlns:ns333="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_UnitLength"
+				Name="VH_UnitLengthSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns334:EntitySet xmlns:ns334="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_ProductTypeCode"
+				Name="VH_ProductTypeCodeSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns335:EntitySet xmlns:ns335="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_BPRole" Name="VH_BPRoleSet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/><ns336:EntitySet xmlns:ns336="http://schemas.microsoft.com/ado/2008/09/edm" EntityType="GWSAMPLE_BASIC.VH_Language" Name="VH_LanguageSet"
+				sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:pageable="false" sap:updatable="false"/>
+				<ns337:AssociationSet xmlns:ns337="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Language_Contacts"
+					Name="Assoc_VH_Language_Contacts_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns338:End xmlns:ns338="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_LanguageSet" Role="FromRole_Assoc_VH_Language_Contacts"/><ns339:End xmlns:ns339="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ContactSet" Role="ToRole_Assoc_VH_Language_Contacts"/>
+				</ns337:AssociationSet>
+				<ns340:AssociationSet xmlns:ns340="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Category_Products"
+					Name="Assoc_VH_Category_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns341:End xmlns:ns341="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CategorySet" Role="FromRole_Assoc_VH_Category_Products"/><ns342:End xmlns:ns342="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_Category_Products"/>
+				</ns340:AssociationSet>
+				<ns343:AssociationSet xmlns:ns343="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_ProductTypeCode_Products" Name="Assoc_VH_ProductTypeCode_Products_AssocS" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns344:End xmlns:ns344="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_ProductTypeCodeSet"
+					Role="FromRole_Assoc_VH_ProductTypeCode_Products"/><ns345:End xmlns:ns345="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_ProductTypeCode_Products"/>
+				</ns343:AssociationSet>
+				<ns346:AssociationSet xmlns:ns346="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_UnitQuantity_Products"
+					Name="Assoc_VH_UnitQuantity_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns347:End xmlns:ns347="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_UnitQuantitySet"
+					Role="FromRole_Assoc_VH_UnitQuantity_Products"/><ns348:End xmlns:ns348="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_UnitQuantity_Products"/>
+				</ns346:AssociationSet>
+				<ns349:AssociationSet xmlns:ns349="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Currency_Products"
+					Name="Assoc_VH_Currency_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns350:End xmlns:ns350="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CurrencySet" Role="FromRole_Assoc_VH_Currency_Products"/><ns351:End xmlns:ns351="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_Currency_Products"/>
+				</ns349:AssociationSet>
+				<ns352:AssociationSet xmlns:ns352="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Country_Contacts"
+					Name="Assoc_VH_Country_Contacts_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns353:End xmlns:ns353="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CountrySet" Role="FromRole_Assoc_VH_Country_Contacts"/><ns354:End xmlns:ns354="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ContactSet" Role="ToRole_Assoc_VH_Country_Contacts"/>
+				</ns352:AssociationSet>
+				<ns355:AssociationSet xmlns:ns355="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_BPRole_BusinessPartners" Name="Assoc_VH_BPRole_BusinessPartners_AssocSe" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns356:End xmlns:ns356="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_BPRoleSet"
+					Role="FromRole_Assoc_VH_BPRole_BusinessPartners"/><ns357:End xmlns:ns357="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="ToRole_Assoc_VH_BPRole_BusinessPartners"/>
+				</ns355:AssociationSet>
+				<ns358:AssociationSet xmlns:ns358="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Sex_Contacts"
+					Name="Assoc_VH_Sex_Contacts_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns359:End xmlns:ns359="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_SexSet" Role="FromRole_Assoc_VH_Sex_Contacts"/><ns360:End xmlns:ns360="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ContactSet" Role="ToRole_Assoc_VH_Sex_Contacts"/>
+				</ns358:AssociationSet>
+				<ns361:AssociationSet xmlns:ns361="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_Product_SalesOrderLineItems" Name="Assoc_Product_SalesOrderLineItems_AssocS" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns362:End xmlns:ns362="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet"
+					Role="FromRole_Assoc_Product_SalesOrderLineItems"/><ns363:End xmlns:ns363="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderLineItemSet"
+					Role="ToRole_Assoc_Product_SalesOrderLineItems"/>
+				</ns361:AssociationSet>
+				<ns364:AssociationSet xmlns:ns364="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_Currency_BusinessPartners" Name="Assoc_VH_Currency_BusinessPartners_Assoc" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns365:End xmlns:ns365="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CurrencySet"
+					Role="FromRole_Assoc_VH_Currency_BusinessPartners"/><ns366:End xmlns:ns366="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="ToRole_Assoc_VH_Currency_BusinessPartners"/>
+				</ns364:AssociationSet>
+				<ns367:AssociationSet xmlns:ns367="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_BusinessPartner_Products"
+					Name="Assoc_BusinessPartner_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns368:End xmlns:ns368="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="FromRole_Assoc_BusinessPartner_Products"/><ns369:End xmlns:ns369="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_BusinessPartner_Products"/>
+				</ns367:AssociationSet>
+				<ns370:AssociationSet xmlns:ns370="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_UnitWeight_Products"
+					Name="Assoc_VH_UnitWeight_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns371:End xmlns:ns371="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_UnitWeightSet"
+					Role="FromRole_Assoc_VH_UnitWeight_Products"/><ns372:End xmlns:ns372="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_UnitWeight_Products"/>
+				</ns370:AssociationSet>
+				<ns373:AssociationSet xmlns:ns373="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_Country_BusinessPartners" Name="Assoc_VH_Country_BusinessPartners_AssocS" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns374:End xmlns:ns374="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CountrySet"
+					Role="FromRole_Assoc_VH_Country_BusinessPartners"/><ns375:End xmlns:ns375="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="ToRole_Assoc_VH_Country_BusinessPartners"/>
+				</ns373:AssociationSet>
+				<ns376:AssociationSet xmlns:ns376="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_UnitLength_Products"
+					Name="Assoc_VH_UnitLength_Products_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns377:End xmlns:ns377="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_UnitLengthSet"
+					Role="FromRole_Assoc_VH_UnitLength_Products"/><ns378:End xmlns:ns378="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ProductSet" Role="ToRole_Assoc_VH_UnitLength_Products"/>
+				</ns376:AssociationSet>
+				<ns379:AssociationSet xmlns:ns379="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_VH_Currency_SalesOrders"
+					Name="Assoc_VH_Currency_SalesOrders_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns380:End xmlns:ns380="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CurrencySet"
+					Role="FromRole_Assoc_VH_Currency_SalesOrders"/><ns381:End xmlns:ns381="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet" Role="ToRole_Assoc_VH_Currency_SalesOrders"/>
+				</ns379:AssociationSet>
+				<ns382:AssociationSet xmlns:ns382="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_SalesOrder_SalesOrderLineItems" Name="Assoc_SalesOrder_SalesOrderLineItems_Ass" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns383:End xmlns:ns383="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet"
+					Role="FromRole_Assoc_SalesOrder_SalesOrderLineItems"/><ns384:End xmlns:ns384="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderLineItemSet"
+					Role="ToRole_Assoc_SalesOrder_SalesOrderLineItems"/>
+				</ns382:AssociationSet>
+				<ns385:AssociationSet xmlns:ns385="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_BusinessPartner_SalesOrders" Name="Assoc_BusinessPartner_SalesOrders_AssocS" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns386:End xmlns:ns386="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="FromRole_Assoc_BusinessPartner_SalesOrders"/><ns387:End xmlns:ns387="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet"
+					Role="ToRole_Assoc_BusinessPartner_SalesOrders"/>
+				</ns385:AssociationSet>
+				<ns388:AssociationSet xmlns:ns388="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_Currency_SalesOrderLineItems" Name="Assoc_VH_Currency_SalesOrderLineItems_As" sap:content-version="1"
+					sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns389:End xmlns:ns389="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_CurrencySet"
+					Role="FromRole_Assoc_VH_Currency_SalesOrderLineItems"/><ns390:End xmlns:ns390="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderLineItemSet"
+					Role="ToRole_Assoc_VH_Currency_SalesOrderLineItems"/>
+				</ns388:AssociationSet>
+				<ns391:AssociationSet xmlns:ns391="http://schemas.microsoft.com/ado/2008/09/edm" Association="GWSAMPLE_BASIC.Assoc_BusinessPartner_Contacts"
+					Name="Assoc_BusinessPartner_Contacts_AssocSet" sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns392:End xmlns:ns392="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="BusinessPartnerSet"
+					Role="FromRole_Assoc_BusinessPartner_Contacts"/><ns393:End xmlns:ns393="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="ContactSet" Role="ToRole_Assoc_BusinessPartner_Contacts"/>
+				</ns391:AssociationSet>
+				<ns394:AssociationSet xmlns:ns394="http://schemas.microsoft.com/ado/2008/09/edm"
+					Association="GWSAMPLE_BASIC.Assoc_VH_UnitQuantity_SalesOrderLineItem" Name="Assoc_VH_UnitQuantity_SalesOrderLineItem"
+					sap:content-version="1" sap:creatable="false" sap:deletable="false" sap:updatable="false"><ns395:End xmlns:ns395="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="VH_UnitQuantitySet"
+					Role="FromRole_Assoc_VH_UnitQuantity_SalesOrderLineItem"/><ns396:End xmlns:ns396="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderLineItemSet"
+					Role="ToRole_Assoc_VH_UnitQuantity_SalesOrderLineItem"/>
+				</ns394:AssociationSet>
+				<ns397:FunctionImport xmlns:ns397="http://schemas.microsoft.com/ado/2008/09/edm" Name="RegenerateAllData"
+					ReturnType="GWSAMPLE_BASIC.CT_String" m:HttpMethod="POST"><ns398:Parameter xmlns:ns398="http://schemas.microsoft.com/ado/2008/09/edm" Mode="In" Name="NoOfSalesOrders" Type="Edm.Int32"/>
+				</ns397:FunctionImport>
+				<ns399:FunctionImport xmlns:ns399="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet" Name="SalesOrder_Confirm"
+					ReturnType="GWSAMPLE_BASIC.SalesOrder" m:HttpMethod="POST" sap:action-for="GWSAMPLE_BASIC.SalesOrder"><ns400:Parameter xmlns:ns400="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Mode="In" Name="SalesOrderID" Type="Edm.String"/>
+				</ns399:FunctionImport>
+				<ns401:FunctionImport xmlns:ns401="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet" Name="SalesOrder_Cancel"
+					ReturnType="GWSAMPLE_BASIC.SalesOrder" m:HttpMethod="POST" sap:action-for="GWSAMPLE_BASIC.SalesOrder"><ns402:Parameter xmlns:ns402="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Mode="In" Name="SalesOrderID" Type="Edm.String"/>
+				</ns401:FunctionImport>
+				<ns403:FunctionImport xmlns:ns403="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet" Name="SalesOrder_InvoiceCreated"
+					ReturnType="GWSAMPLE_BASIC.SalesOrder" m:HttpMethod="POST" sap:action-for="GWSAMPLE_BASIC.SalesOrder"><ns404:Parameter xmlns:ns404="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Mode="In" Name="SalesOrderID" Type="Edm.String"/>
+				</ns403:FunctionImport>
+				<ns405:FunctionImport xmlns:ns405="http://schemas.microsoft.com/ado/2008/09/edm" EntitySet="SalesOrderSet"
+					Name="SalesOrder_GoodsIssueCreated" ReturnType="GWSAMPLE_BASIC.SalesOrder" m:HttpMethod="POST" sap:action-for="GWSAMPLE_BASIC.SalesOrder"><ns406:Parameter xmlns:ns406="http://schemas.microsoft.com/ado/2008/09/edm" MaxLength="10" Mode="In" Name="SalesOrderID" Type="Edm.String"/>
+				</ns405:FunctionImport>
+			</ns320:EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata"
+				rel="self"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" href="https://sapes5.sapdevcenter.com/sap/opu/odata/iwbep/GWSAMPLE_BASIC/$metadata"
+				rel="latest-version"/>
+		</ns0:Schema>
+	</edmx:DataServices>
+</edmx:Edmx>
